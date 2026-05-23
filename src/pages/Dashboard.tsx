@@ -13,20 +13,26 @@ function Dashboard() {
         </h1>
 
         <ul className="space-y-4">
-          <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
-            Dashboard
-          </li>
 
           <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
-            Offers
+            Dashboard
           </li>
 
           <li>
             <button
               onClick={() => navigate("/create-offer")}
-              className="bg-white text-blue-600 px-4 py-2 rounded w-full"
+              className="w-full text-left hover:bg-blue-700 p-2 rounded"
             >
               Create Offer
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={() => navigate("/manage-offers")}
+              className="w-full text-left hover:bg-blue-700 p-2 rounded"
+            >
+              Manage Offers
             </button>
           </li>
 
@@ -37,6 +43,7 @@ function Dashboard() {
           <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
             Profile
           </li>
+
         </ul>
       </div>
 
@@ -47,7 +54,7 @@ function Dashboard() {
           Dashboard Overview
         </h2>
 
-        {/* Cards */}
+        {/* Stats Cards */}
         <div className="grid grid-cols-4 gap-4 mb-6">
 
           <div className="bg-white p-4 rounded-xl shadow">
@@ -66,13 +73,13 @@ function Dashboard() {
           </div>
 
           <div className="bg-white p-4 rounded-xl shadow">
-            <h3 className="text-gray-500">Today Bookings</h3>
+            <h3 className="text-gray-500">Today's Bookings</h3>
             <p className="text-2xl font-bold">5</p>
           </div>
 
         </div>
 
-        {/* Table */}
+        {/* Recent Bookings Table */}
         <div className="bg-white p-4 rounded-xl shadow">
 
           <h3 className="text-xl font-bold mb-4">
@@ -80,6 +87,7 @@ function Dashboard() {
           </h3>
 
           <table className="w-full text-left">
+
             <thead>
               <tr className="border-b">
                 <th className="p-2">Customer</th>
@@ -107,11 +115,13 @@ function Dashboard() {
                 <td className="p-2 text-yellow-600">Pending</td>
               </tr>
             </tbody>
+
           </table>
 
         </div>
 
       </div>
+
     </div>
   );
 }
