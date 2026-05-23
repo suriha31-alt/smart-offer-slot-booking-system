@@ -1,31 +1,15 @@
-import { useState } from "react";
-
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import CreateOffer from "./pages/CreateOffer";
 
 function App() {
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
-    <div>
-
-      {isLoggedIn ? (
-        <Dashboard />
-      ) : (
-        <Login />
-      )}
-
-      <div className="fixed bottom-5 right-5">
-        <button
-          onClick={() => setIsLoggedIn(!isLoggedIn)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg"
-        >
-          {isLoggedIn ? "Go to Login" : "Go to Dashboard"}
-        </button>
-      </div>
-
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/create-offer" element={<CreateOffer />} />
+    </Routes>
   );
 }
 

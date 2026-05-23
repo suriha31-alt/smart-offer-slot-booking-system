@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault(); // stop page reload
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
 
@@ -8,12 +17,10 @@ function Login() {
           Admin Login
         </h1>
 
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
 
           <div>
-            <label className="block mb-1 font-medium">
-              Email
-            </label>
+            <label className="block mb-1 font-medium">Email</label>
 
             <input
               type="email"
@@ -23,9 +30,7 @@ function Login() {
           </div>
 
           <div>
-            <label className="block mb-1 font-medium">
-              Password
-            </label>
+            <label className="block mb-1 font-medium">Password</label>
 
             <input
               type="password"
@@ -42,6 +47,7 @@ function Login() {
           </button>
 
         </form>
+
       </div>
     </div>
   );
