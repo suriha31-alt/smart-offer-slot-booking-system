@@ -1,9 +1,9 @@
 function Login() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      
+
       <div className="bg-white p-8 rounded-2xl shadow-lg w-[400px]">
-        
+
         <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
           Admin Login
         </h1>
