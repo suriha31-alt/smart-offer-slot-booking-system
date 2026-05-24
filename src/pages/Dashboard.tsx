@@ -3,6 +3,13 @@ import { useNavigate } from "react-router-dom";
 function Dashboard() {
   const navigate = useNavigate();
 
+  // ✅ Dummy offers data (replace later with API)
+  const offers = [
+    { id: 1, title: "Gym Trial Offer" },
+    { id: 2, title: "Salon Discount Offer" },
+    { id: 3, title: "Spa Package Offer" }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-100 flex">
 
@@ -12,10 +19,15 @@ function Dashboard() {
           Admin Panel
         </h1>
 
-        <ul className="space-y-4">
+        <ul className="space-y-3">
 
-          <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
-            Dashboard
+          <li>
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="w-full text-left hover:bg-blue-700 p-2 rounded"
+            >
+              Dashboard
+            </button>
           </li>
 
           <li>
@@ -36,17 +48,22 @@ function Dashboard() {
             </button>
           </li>
 
-         <li>
-  <button
-    onClick={() => navigate("/bookings")}
-    className="w-full text-left hover:bg-blue-700 p-2 rounded"
-  >
-    Bookings
-  </button>
-</li>
+          <li>
+            <button
+              onClick={() => navigate("/bookings")}
+              className="w-full text-left hover:bg-blue-700 p-2 rounded"
+            >
+              Bookings
+            </button>
+          </li>
 
-          <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
-            Profile
+          <li>
+            <button
+              onClick={() => navigate("/profile")}
+              className="w-full text-left hover:bg-blue-700 p-2 rounded"
+            >
+              Profile
+            </button>
           </li>
 
         </ul>
@@ -59,7 +76,7 @@ function Dashboard() {
           Dashboard Overview
         </h2>
 
-        {/* Stats Cards */}
+        {/* Stats */}
         <div className="grid grid-cols-4 gap-4 mb-6">
 
           <div className="bg-white p-4 rounded-xl shadow">
@@ -84,41 +101,44 @@ function Dashboard() {
 
         </div>
 
-        {/* Recent Bookings Table */}
+        {/* Offers List with View Details */}
         <div className="bg-white p-4 rounded-xl shadow">
 
           <h3 className="text-xl font-bold mb-4">
-            Recent Bookings
+            Offers
           </h3>
 
           <table className="w-full text-left">
 
             <thead>
               <tr className="border-b">
-                <th className="p-2">Customer</th>
-                <th className="p-2">Offer</th>
-                <th className="p-2">Slot</th>
-                <th className="p-2">People</th>
-                <th className="p-2">Status</th>
+                <th className="p-2">Offer Name</th>
+                <th className="p-2">Action</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr className="border-b">
-                <td className="p-2">John</td>
-                <td className="p-2">Gym Trial</td>
-                <td className="p-2">5 PM</td>
-                <td className="p-2">2</td>
-                <td className="p-2 text-green-600">Confirmed</td>
-              </tr>
+              {offers.map((offer) => (
+                <tr key={offer.id} className="border-b">
 
-              <tr className="border-b">
-                <td className="p-2">Sara</td>
-                <td className="p-2">Salon Offer</td>
-                <td className="p-2">3 PM</td>
-                <td className="p-2">1</td>
-                <td className="p-2 text-yellow-600">Pending</td>
-              </tr>
+                  <td className="p-2">
+                    {offer.title}
+                  </td>
+
+                  <td className="p-2">
+
+                    {/* ✅ Working View Details button */}
+                    <button
+                      onClick={() => navigate(`/offer/${offer.id}`)}
+                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                    >
+                      View Details
+                    </button>
+
+                  </td>
+
+                </tr>
+              ))}
             </tbody>
 
           </table>
@@ -126,7 +146,6 @@ function Dashboard() {
         </div>
 
       </div>
-
     </div>
   );
 }

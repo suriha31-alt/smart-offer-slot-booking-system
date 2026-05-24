@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard";
 import CreateOffer from "./pages/CreateOffer";
 import ManageOffers from "./pages/ManageOffers";
 import ManageBookings from "./pages/ManageBookings";
+import OffersPage from "./pages/public/OffersPage";
+import OfferDetail from "./pages/public/OfferDetail";
 function App() {
   return (
     <Routes>
@@ -13,6 +15,8 @@ function App() {
       <Route path="/create-offer" element={<CreateOffer />} />
       <Route path="/manage-offers" element={<ManageOffers />} />
       <Route path="/bookings" element={<ManageBookings />} />
+      <Route path="/offers" element={<OffersPage />} />
+      <Route path="/offer/:id" element={<OfferDetail />} />
     </Routes>
   );
 }
