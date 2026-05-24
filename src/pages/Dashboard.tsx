@@ -36,9 +36,14 @@ function Dashboard() {
             </button>
           </li>
 
-          <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
-            Bookings
-          </li>
+         <li>
+  <button
+    onClick={() => navigate("/bookings")}
+    className="w-full text-left hover:bg-blue-700 p-2 rounded"
+  >
+    Bookings
+  </button>
+</li>
 
           <li className="hover:bg-blue-700 p-2 rounded cursor-pointer">
             Profile
